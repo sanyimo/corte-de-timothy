@@ -1,0 +1,44 @@
+@use '../abstracts/mixins' as m;
+.pagina-legal {
+    background: #f9f9f9;
+    padding: 4rem 1rem;
+
+    .container-legal {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 2.5rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .titulo-legal {
+         @include m.bg-titulo-oscuro;
+    }
+
+    .contenido-legal {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #444;
+
+        ul,
+        ol {
+            margin-left: 1.5rem;
+            padding-left: 1rem;
+        }
+
+        p {
+            text-indent: 1.5rem;
+            margin: 0.5rem;
+        }
+
+        a {
+            color: #005fa3;
+            text-decoration: underline;
+
+            &:hover {
+                color: #003d6f;
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+/* Ocultar submenu por defecto */
+.nav-menu .sub-menu {
+    display: none;
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    //margin-top: 0.5em;
+    min-width: 160px;
+    z-index: 9999;
+    list-style: none;
+    padding: 0;
+}
+
+/* Mostrar submenu solo al hacer hover en el padre */
+.nav-menu .menu-item-has-children:hover > .sub-menu {
+    display: block;
+}
+
+/* Opcional: estilos básicos para los items del submenu */
+.nav-menu .sub-menu .menu-item a {
+    display: block;
+    padding: 1em;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-menu .sub-menu .menu-item a:hover {
+    background-color: #eee;
+}
+
+.menu-avatar {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    object-fit: cover;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.user-menu-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.username {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.dropdown-icon {
+    font-size: 0.6rem;
+    margin-left: 0.3rem;
+}

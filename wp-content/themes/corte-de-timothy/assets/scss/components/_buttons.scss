@@ -1,0 +1,170 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    perspective: 800px;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    box-shadow: v.$box-shadow, inset 0 1px 2px rgba(v.$BlancoPerlado, 0.5),;
+    border-radius: 2rem;
+    overflow: hidden;
+    
+    @include m.tablet {
+        padding: 1.05rem 2rem;
+        font-size: 1.1rem;
+    }
+
+    @include m.desktop {
+        padding: 1.25rem 3rem;
+        font-size: 1.2rem;   
+    }
+}
+
+.btn-explorar {
+    padding: 1rem 2rem;
+    background: v.$perla-radial;
+    border: 1px solid rgba(v.$PerlaGris, 0.4);
+    color: lighten(v.$NegroElegante, 10);
+    margin-top: 1rem;
+
+    &:hover {
+        background: radial-gradient(circle at center,
+                #fff8f0 0%,
+                #f8eaea 30%,
+                #fdf6e3 60%,
+                #eae6f8 100%);
+        color: #4a3d0a; // un tono dorado oscuro para el texto
+        border-color: #b89f43; // borde perlado dorado suave
+        box-shadow:
+            0 0 12px 3px rgba(234, 230, 248, 0.6),
+            inset 0 0 8px 3px rgba(255, 255, 255, 0.7);
+    }
+}
+
+.btn-marques {
+    color: v.$carmesi;
+    padding: 1rem 2rem;
+    border: 1px solid rgba(v.$PerlaGris, 0.4);
+    background: transparent;
+    margin-top: 1rem;
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+
+    &:hover {
+        background: linear-gradient(135deg,
+                rgba(#fdf6e3, 0.9),
+                rgba(#f8eaea, 0.8),
+                rgba(#eae6f8, 0.7));
+        color: darken(v.$carmesi, 10%);
+        border-color: rgba(v.$carmesi, 0.4);
+        box-shadow:
+            0 0 6px rgba(v.$carmesi, 0.2),
+            0 0 14px rgba(#b03060, 0.15) inset;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+        filter: brightness(1.03);   
+    }
+}
+
+.btn-servicios, .toggle-button {
+    padding: 1rem 2rem;
+    background: v.$perla-realista;
+    border: 1px solid rgba(v.$PerlaGris, 0.6);
+    color: (rgba(v.$gris, 0.7));
+    margin-top: 2rem;
+
+    &:hover {
+        box-shadow:
+            0 0 15px 5px rgba(255, 255, 255, 0.6),
+            0 0 30px 10px rgba(234, 230, 248, 0.5),
+            inset 0 0 8px 3px rgba(255, 255, 255, 0.8);
+    
+        // para que el brillo se note más claro y radiante
+        filter: brightness(1.05);
+    }
+}
+
+.btn-reservar {
+    width: 100%;
+    max-width: 20rem;
+    margin: 0 auto;
+    background: v.$oro-linear;
+    color: v.$blancoReal;
+    padding: 0.8rem 1.5rem;
+    border: v.$OroElegante;
+
+    &:hover {
+        background: linear-gradient(to bottom, #f9e79f, #b08930);
+        color: #4a3d0a;
+        border-color: #d4af37;
+        box-shadow:
+            0 0 15px 3px rgba(212, 175, 55, 0.7),
+            0 0 30px 8px rgba(212, 175, 55, 0.4);
+        filter: brightness(1.1);        
+    }
+}
+
+.boton-real {
+    background: radial-gradient(circle, #fff8e1 0, #d4af37 70%, #b08930 90%);
+    border: 1px solid #b08930;
+    text-decoration: none;
+    color: #121212;
+    font-weight: bold;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    font-family: v.$title-font;
+
+    &:hover {
+        background: #fff;
+        box-shadow:
+            0 2px 10px rgba(0, 0, 0, 0.1), /* sombra pequeña normal */
+            inset 0 1px 0 rgba(255, 255, 255, 0.4), /* brillo interno */
+            0 0 10px 3px rgba(v.$OroReal, 0.7), /* halo difuso grande */
+            0 0 20px 8px rgba(v.$OroReal, 0.5); /* halo más difuso y grande */
+        filter: brightness(1.05);
+    }
+}
+
+.boton-llamada {
+    display: inline-block;
+    background: radial-gradient(circle, #fff8e1 0, #d4af37 70%, #b08930 90%);
+    border: 1px solid #b08930;
+    text-decoration: none;
+    color: #121212;
+    font-weight: bold;    
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem rgba(v.$OroElegante, 0.4);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 0 1.5rem rgba(v.$BlancoPerlado, 0.6);
+    }
+}
+
+.glsr-submit,
+.comentario-button {
+    background: v.$carmesi;
+    color: v.$blancoReal;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: linear-gradient(135deg, darken(v.$carmesi, 10%), v.$carmesi);
+        transform: scale(1.05);
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.btn-eliminar-perfil {
+    margin-top: 4rem;
+}

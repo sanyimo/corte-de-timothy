@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="48" viewBox="0 0 300 48" role="img" aria-label="Corte de Timothy">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&amp;display=swap');
+
+      .texto {
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 700;
+        font-size: 36px;
+        fill: #960018;
+        letter-spacing: 0.5px;
+        filter: drop-shadow(2px 2px 3px rgba(85, 85, 85, 0.3));
+      }
+    </style>
+  </defs>
+  <text class="texto" x="0" y="36">Corte de Timothy</text>
+</svg>

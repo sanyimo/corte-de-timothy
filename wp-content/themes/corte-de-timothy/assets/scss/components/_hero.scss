@@ -1,0 +1,79 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.hero {
+    background: v.$perla-iridiscente;
+    padding: 1rem;
+    text-align: center;
+
+    @include m.tablet {
+        padding: 4rem 1rem;
+    }
+
+    @include m.tablet-horizontal {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    @include m.desktop {        
+        width: 80%;
+        min-width: 500px;
+        max-width: 1200px;
+        min-height: 400px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(v.$gris, 0.05);
+    }
+
+    p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        //text-shadow: 2px 2px 3px rgba(60, 42, 32, 0.2);
+
+        @include m.tablet {
+            font-size: 1.25rem;
+            max-width: 700px;
+        }
+    }
+
+    .diamante {
+        @include m.bg-titulo(v.$carmesi, v.$BlancoPerlado);      
+    }
+
+    .diamante {
+        display: inline-block;
+        position: relative;
+        font-size: 2rem;
+    }        
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 5%;
+        margin: 0 auto;      
+        will-change: transform;
+
+        @include m.tablet {
+            max-width: 600px;
+        }
+
+        @include m.desktop {
+            max-width: 600px;
+            transition: all 0.2s ease;
+
+
+            &:hover {
+                transform: rotateX(2deg) rotateY(1deg) scale(1.02);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(255, 255, 255, 0.6) inset;
+            }
+        }
+        
+    }
+}

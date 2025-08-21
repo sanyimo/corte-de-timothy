@@ -1,0 +1,175 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+body.bg-servicios {
+    background: url('../img/jardin-griego2500.webp') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.dominios {
+    padding: 4rem 2rem;
+    text-align: center;
+
+    &__titulo{
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        @include m.bg-titulo;
+    
+        &::before {
+            position: absolute;
+            content: "";
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150%;
+            height: 150%;
+            background: url("../img/dominios-titulo-icon.svg") no-repeat center/contain;
+            z-index: -1;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            max-width: 350px;
+            height: 150%;
+            background: radial-gradient(rgba(0, 0, 0, 0.3), transparent); // ejemplo de fondo para realce
+            z-index: -2; // MÁS atrás que el ::before
+            pointer-events: none;    
+            filter: blur(20px);
+            border-radius: 50%;
+        }
+    }
+
+    &__intro {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 3rem;
+        font-style: italic;
+        color: #fff;
+    }
+
+    &__zonas {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr;
+
+        @include m.tablet {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .dominio {
+        background: linear-gradient(to bottom, rgba(v.$blancoReal, 0.8), rgba(v.$BlancoPerlado, 0.8));
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+
+        &__icono {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        &__titulo {
+            font-size: 1.6rem;
+            color: #2b1d1b;
+        }
+
+        &__subtitulo {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        &__descripcion {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        &__imagen {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 1rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &__mapa {
+        margin: 4rem 0;
+        text-align: center;
+
+        h3::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            max-width: 350px;
+            height: 150%;
+            background: radial-gradient(rgba(0, 0, 0, 0.6), transparent); // ejemplo de fondo para realce
+            z-index: -2; // MÁS atrás que el ::before
+            pointer-events: none;
+            filter: blur(20px);
+            border-radius: 50%;   
+        }
+        
+        p {
+            color: #fff;
+            font-style: italic;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+
+        &-img {
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 1rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+.reino__ubicacion {
+    padding: 4rem 2rem;
+    background: rgba(v.$blancoReal, 0.8);
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    &-texto {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto 2.5rem;
+        color: #5e524f;
+    }
+
+    .reino__mapa {
+        max-width: 900px;
+        margin: 0 auto;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+}

@@ -1,0 +1,249 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+body.login,
+body.registro,
+body.verificar-email {
+    min-height: 100vh;    
+    background: url('../img/jardin-3500.webp') no-repeat center center fixed;
+    background-size: cover;
+
+    main {
+        flex: 1;
+        margin-bottom: 1rem;
+    }
+
+    footer {
+        margin-top: auto;
+    }
+}
+h1.titulo {
+    margin-bottom: 0;
+}   
+
+form.register-form,
+.login-form-wrapper form {
+    width: 100%;    
+    margin: 0 auto 1rem;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    background: rgba(#fff, 0.8);
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    box-sizing: border-box;
+
+    @include m.desktop {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    fieldset {
+        border: 2px solid v.$OroReal;
+        border-radius: 8px;
+
+        @include m.desktop {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        legend {
+            font-weight: 700;
+            color: v.$OroReal;
+            padding: 0 0.5rem;
+
+            @include m.desktop {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+        textarea#pet_notes {
+            width: 100%;
+            min-height: 80px;
+            padding: 0.6rem 0;
+            border: 1.5px solid v.$OroReal;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            resize: vertical;
+            transition: all 0.3s ease;
+    
+            &:focus {
+                border-color: v.$OroAntiguo;
+                outline: none;
+                box-shadow: 0 0 5px rgba(v.$OroAntiguo, 0.5);
+            }
+        }
+    
+    p {
+        margin: 0.3rem 0;
+
+        @include m.desktop {
+            margin: 1rem 0;
+        }
+    }
+
+    @include m.desktop {
+        width: 600px;
+        padding: 2rem;
+        gap: 1rem;
+    }
+}
+
+form.register-form input,
+form.register-form button,
+.login-form-wrapper input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(v.$gris, 0.3);
+    box-sizing: border-box;
+}
+
+form.register-form input[type="submit"],
+form.register-form button,
+.login-form-wrapper input[type="submit"] {
+    background: v.$carmesi;
+    color: v.$blancoReal;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: darken(v.$carmesi, 10%);
+    }
+}
+
+// Checkbox estilo login
+.login-remember {
+    display: flex;
+    align-items: center;
+
+    input[type="checkbox"] {
+        width: auto;
+        margin-right: 0.5rem;
+        transform: scale(1.2);
+        accent-color: v.$carmesi;
+    }
+
+    label {
+        margin: 0;
+        font-weight: normal;
+    }
+}
+
+// Errores
+.form-group {
+    position: relative;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.form-message {
+    position: relative; // Para que .form-errors siga usando absolute, lo veremos abajo
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.4;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    animation: aparecerFlotando 0.4s ease-out;
+    border: 1px solid transparent; // Por defecto transparente para no repetir bordes
+    pointer-events: auto;
+    z-index: 10;
+
+    &[aria-hidden="true"] {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+/* .form-errors requiere posición absoluta y tamaño y padding más pequeño */
+.form-errors {
+    @extend .form-message;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: max-content;
+    padding: 0.5rem;
+    pointer-events: none;
+    border-bottom-width: 1px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #ffe6e6;
+    border-color: v.$carmesi;
+    color: v.$carmesi;
+    transition: opacity 0.5s ease;
+    opacity:1;
+
+    &.hidden {
+        opacity: 0;
+        pointer-events: none /* para que no interfiera mientras está oculto */         
+    }
+}
+
+.form-error-general {
+    @extend .form-message;
+    background-color: #ffe6e6;
+    border-color: v.$carmesi;
+    color: v.$carmesi;
+}
+
+.form-success {
+    @extend .form-message;
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: max-content;
+    padding: 0.5rem;
+    pointer-events: none;
+    border-bottom-width: 1px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #c7ffde;
+    border-color: #27ae60;
+    color: #27ae60;
+}
+
+#nav {
+    display: flex;
+    flex-direction: column;
+    background: rgba(v.$BlancoPerlado, 0.1);
+    backdrop-filter: blur(3px);
+    text-align: center;
+    color: v.$BlancoPerlado;
+    margin: 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: fit-content;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    @include m.desktop {
+        flex-direction: row;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    a {
+        color: v.$carmesi;
+        text-decoration: underline;
+
+        &:hover {
+            color: darken(v.$carmesi, 10%);
+        }
+    }
+}

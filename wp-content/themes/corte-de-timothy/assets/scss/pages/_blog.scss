@@ -1,0 +1,154 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+@use '../components/animations';
+
+.bg-cronicas {
+    background: url('../img/terraza-flores.webp') no-repeat center center fixed;
+    background-size: cover;
+    perspective: none;
+}
+
+.cronicas {
+    position: relative;
+    padding: 4rem 1.5rem;
+
+    @include m.desktop {
+        padding: 0 3rem;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__grid {
+        display: grid;
+        padding-top: 600px;
+        position: relative;        
+        z-index: 1;
+        gap: 2rem;
+
+        @include m.tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include m.desktop {
+            padding-top: 700px;
+            
+        }
+    }
+
+    .cronica {
+        background: url('../img/papiro-595.webp') no-repeat center center;
+        background-size: 100% 100%;
+        position: relative;
+        padding: 4rem 3rem;
+        transition: all 0.2s ease;
+
+        @include m.desktop {
+            padding: 4rem;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 70px;
+            background: url('../img/sello.webp') no-repeat center center;
+            background-size: contain;
+            pointer-events: none;
+            z-index: 2;
+
+            @include m.desktop {
+                bottom: 3.5rem;
+            }
+        }
+
+        h2 {
+            @include m.bg-titulo-oscuro;
+        }
+
+        &:hover {
+            transform: scale(1.02);
+        }
+
+        a {
+            text-decoration: none;
+            color: v.$gris;
+        }
+
+        .firma {
+            text-align: right;
+            margin-top: 1rem;
+            font-style: italic;
+            color: v.$carmesi;
+        }
+    }
+}
+
+.cronicas__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    margin: 0;
+    position: fixed;
+    padding: 5rem 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+
+    @include m.desktop {
+        padding: 8rem 1.5rem;        
+    }
+
+    &-texto {
+        position: relative;
+        max-width: 400px;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(8px);
+        border-radius: 2rem;
+        padding: 1rem 1.5rem;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15), inset 0 0 10px rgba(255, 255, 255, 0.3);
+        font-style: italic;
+        opacity: 0;
+        animation: aparecerFlotando 0.8s ease-out 1.5s forwards;
+
+        @include m.desktop {
+            padding: 1.5rem 2rem;
+        }
+    
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            transform: translateX(-50%) rotate(45deg);
+            box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.1);     
+        }
+    }
+
+    &-imagen {
+        flex-shrink: 0;
+
+        img {
+            width: 200px;
+            height: auto;
+
+            @include m.tablet {
+                width: 240px;
+            }
+        }
+    }
+}

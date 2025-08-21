@@ -1,0 +1,58 @@
+// Fuentes
+$body-font: 'Lato', sans-serif;
+$title-font: 'Cormorant Garamond', serif;
+
+$mobile-horizontal: 600px;
+$tablet: 768px;
+$tablet-horizontal: 1024px;
+$desktop: 1200px;
+$desktop-xl: 1440px;
+$desktop-xxl: 1920px;
+
+$blancoReal: #fefefe;
+$BlancoPerlado: #fdfdfb;
+$perlaFuerte: #f0e9f5;
+
+$PerlaGris: #c9c4bd;
+$gris: #555555;
+
+$NegroElegante: #1a1a1a;
+
+$OroReal: #d4af37;
+$OroAntiguo: #bfa24d;
+$OroElegante: #b08930;
+
+$carmesi: #960018;
+$escarlata: #D72638;
+
+$oro-linear: linear-gradient(to bottom, #fff8e1, #d4af37, #b08930);//Gradiente Dorado Realista
+$oro-radial: radial-gradient(circle, #fff8e1, #d4af37, #b08930);//Gradiente Dorado Realista
+
+$perla-realista: radial-gradient(circle,
+    #ffffff 0%,
+    #f8eaea 30%,
+    #fdf6e3 60%,
+    #eae6f8 100%);
+$perla-realista-potente: radial-gradient(circle,  
+  #ffffff 0%,
+  #fbeaea 20%,
+  #fdf6e3 40%,
+  #f5edd1 55%,
+  #f0e2f8 75%,
+  #e6ddf8 90%,
+  #ffffff 100%);//perla realista potente
+$perla-iridiscente: radial-gradient(circle, #ffffff, #f5f5f3, #d8d5ce); //perla iridiscente
+$perla-linear: linear-gradient(145deg, #ffffff, #f4f3f1, #c9c4bd);//Blanco-Perla con profundidad
+$perla-radial: radial-gradient(circle, #ffffff, #f4f3f1 25%, #c9c4bd 90%);//Blanco-Perla con profundidad
+
+$light-to-dark: linear-gradient(to bottom, #ffffff, #f5f5f3, #1a1a1a 100%);//Light-to-Dark Elegancia
+$light-dark-radial: radial-gradient(circle, #ffffff, #f5f5f3, #1a1a1a 100%);//Light-to-Dark Elegancia
+$dark-light-radial: radial-gradient(circle, #1a1a1a, #f5f5f3, #ffffff);//Dark-to-Light Elegancia
+$dark-to-light: linear-gradient(to bottom, #1a1a1a, #f5f5f3 80%, #ffffff 100%);//Dark-to-Light Elegancia
+
+$box-shadow:  0 1px 3px rgba(0, 0, 0, 0.05); 
+$box-shadow-inset: 
+        inset 0 1px 2px rgba(15, 10, 10, 0.5),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.05),
+        0 2px 5px rgba(0, 0, 0, 0.1);
+//Sombras3D: rgba(0, 0, 0, 0.05)–0.15;

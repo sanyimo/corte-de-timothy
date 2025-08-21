@@ -1,0 +1,125 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+body.bg-home {
+    background: url('../img/terraza-flores.webp') no-repeat center center fixed;
+    background-size: cover;
+}
+
+h1 {
+   color: #4a3d0a;
+}
+
+.main-wrapper, .linaje-real {
+    transform-style: preserve-3d;
+    will-change: transform; 
+}
+
+.servicios {
+    text-align: center;
+    transform-style: preserve-3d;
+
+    @include m.tablet {
+        padding: 3rem 0;
+    }
+
+    h2 {
+        margin-bottom: 2rem;
+        @include m.titulo-blanco;
+    }
+
+    &-grid {
+        background: v.$perla-radial;
+        display: grid;
+        padding: 2rem;
+        border-radius: 1rem;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+        @include m.tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include m.desktop {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+    }
+
+    .servicio {
+        background: v.$blancoReal;
+        border: 1px solid rgba(v.$PerlaGris, 0.4);
+        padding: 1.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease;
+        margin: 0 auto;
+        max-width: 20rem;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        h3 {
+            box-shadow: #fdfaf5 1px 1px 2px;
+            margin-bottom: 0.5rem;
+
+            span {
+                font-size: 1.4rem;
+                color: transparent;
+                -webkit-text-fill-color: transparent;
+                background: radial-gradient(circle, v.$BlancoPerlado 0, v.$carmesi  50%);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+        }
+
+        p {
+            font-size: 0.95rem;
+        }
+    }
+}
+
+.aside-home {
+    transform-style: preserve-3d;
+    will-change: transform;
+
+    @include m.tablet-horizontal {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        max-width: 1300px;
+        margin: 1rem auto 3rem;
+    }
+}
+
+.cta {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(155deg, #f9e79f, #b08930);
+    border: 1px solid rgba(v.$PerlaGris, 0.4);
+    padding: 3rem 1rem;
+    align-content: center;
+    text-align: center;     
+
+    @include m.tablet {
+        border-radius: 1rem;
+        max-width: 600px;        
+        margin: 0 auto;
+        padding: 1.5rem;
+        box-shadow: 0 6px 10px rgba(v.$gris, 0.15);
+    }
+
+    &__titulo {
+        margin-bottom: 1rem;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        background: linear-gradient(to bottom, v.$OroElegante, #4a3d0a );
+        -webkit-background-clip: text;
+        background-clip: text;
+        
+
+        @include m.desktop {
+            margin-bottom: 3rem;
+        }
+    }
+}

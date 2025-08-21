@@ -1,0 +1,433 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+body.bg-linaje {
+    background: url('../img/interior.webp') no-repeat center center fixed;
+    background-size: cover;
+}
+.linaje {    
+    width: 95%;
+    margin: 0 auto;
+
+    &-real {
+        background: linear-gradient(to bottom, v.$blancoReal, v.$BlancoPerlado);
+        padding: 4rem 2rem;
+
+        h1 {
+            position: relative;
+
+            &::before {
+                position: absolute;
+                content: '';
+                top: -60px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                height: 100%;
+                background: url('../img/CORONA-icon.svg') no-repeat center/contain;
+            }
+        }
+
+        &__titulo {
+            font-size: 3rem;
+            text-align: center;
+            background: v.$oro-linear;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        &__subtitulo {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 2rem;
+
+            span {
+                color: transparent;
+                background: v.$oro-linear;
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+
+        &__texto {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        &__retrato {
+
+            figcaption {
+                text-align: center;
+                margin-top: 1rem;
+                font-style: italic;
+            }
+
+            img.linaje-real__imagen {
+                border: 5px solid v.$PerlaGris;
+                border-radius: 1rem;
+                max-width: 300px;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        &__miembros {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        &__miembro {
+            background: #fff;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid rgba(v.$PerlaGris, 0.2);
+            border-radius: 1rem;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            img.linaje-real__corte-img {
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+                object-fit: cover;
+                border: 3px solid rgba(v.$PerlaGris, 0.2);
+                margin-bottom: 1rem;
+            }
+
+            h4 {
+                margin: 0.5rem 0;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+        }   
+    }
+    &__mision {
+        width: 80%;
+        padding: 2rem;
+        margin: 2rem auto;
+        border-radius: 50%;
+        line-height: 1.6;
+        white-space: pre-line;
+        background: v.$perla-realista;
+
+        @include m.tablet {
+            max-width: 350px;
+            padding: 4rem;
+        }
+
+        h3 {
+            margin-bottom: 0;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 0;
+        }
+    }
+
+    &__historia {
+        margin-top: 4rem;
+        text-align: center;
+        background: linear-gradient(#fff, #f9f6f0);
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+        h3 {
+            margin-bottom: 1rem;
+        }
+
+        .linaje__contenido {
+            display: flex;
+            flex-direction: column;
+
+            @include m.tablet {
+                flex-direction: row;
+                gap: 2rem;       
+            }
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+    }
+
+    &__timeline {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .linaje__evento {
+            background: #fffdfa;
+            border-left: 6px solid gold;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.1);
+
+            p {
+                margin: 0;
+            }
+
+            strong {
+                font-family: v.$title-font;
+                font-size: 120%;
+                background: v.$oro-linear;
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                -webkit-text-fill-color:transparent;
+                text-shadow: rgba(124, 123, 123, 0.3) 2px 2px 3px;
+                display: inline-block;
+                margin-bottom: 0.3rem;
+            }
+
+            span {
+                font-size: 1.2rem;
+                margin-right: 0.5rem;       
+            }
+        }
+    }
+
+    &__trovador {
+        order: -1;
+        flex: 1;
+        margin-top: 2rem;
+        text-align: center;
+    
+        @include m.tablet {
+            order: 1;
+            margin-top: 0;
+        }
+    
+        &-img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 35%;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        figcaption {
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+    
+        blockquote {
+            font-style: italic;
+            font-family: "Great Vibes", cursive;
+            background: #fff9e5;
+            padding: 1rem;
+            background: radial-gradient(circle, #fff9f0, #f0e6d6);
+            box-shadow: inset 0 0 8px rgba(255, 215, 0, 0.3);
+            border-radius: 0.5rem;
+            color: #5a4520;
+            line-height: 1.5;
+        }   
+    }
+
+    &__cta {
+        text-align: center;
+        margin: 3rem 0;
+
+        @include m.desktop {
+            padding: 0.5rem 1rem;
+            margin: 4rem auto;
+            width: fit-content;
+            border-radius: 1rem;
+            background: linear-gradient(to bottom,  rgba(v.$BlancoPerlado, 0.8), transparent);
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__mapa {
+        margin: 3rem 0;
+
+        ul {
+            list-style: none;
+            padding: 1rem;
+            background: linear-gradient(to bottom,  rgba(v.$BlancoPerlado, 0.8), transparent);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+            li {
+                margin: .5rem 0;
+                font-size: 1.1rem;
+            }
+        }
+
+        &-zonas {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include m.tablet {
+                flex-direction: row;
+                gap: 2rem;
+            }
+        }
+
+        &-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin-top: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+            @include m.desktop {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__reliquias,
+    &__honores {
+        margin: 3rem 0;
+
+        &-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        &-icon {
+            width: 10rem;
+            height: 10rem;
+            margin-right: .75rem;
+            filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.2));
+        }
+
+        article {
+            text-align: center;
+            margin: 1rem 0;
+
+            p {
+                display: block;
+                margin: 0;                
+                border: 2px solid rgba(0, 0, 0, 0.05);
+                border-radius: 1rem;
+                padding: 1rem;
+                background-color: v.$blancoReal;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: clamp(14rem, 15.5rem, 17rem);
+                margin: 0 auto;
+
+                strong {
+                    font-family: v.$title-font;
+                    margin-bottom: 0.5rem;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+
+    &__reliquias-grid {
+        background: v.$perla-iridiscente;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    &__codigo {
+        position: relative;
+        background: #fff8e1; // color pergamino claro
+        border-left: 2px solid #c7a008;
+        border-right: 2px solid #c7a008;
+        margin: 3rem auto;
+        padding: 3rem 2rem;
+        width: 80%;        
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+        @include m.tablet {
+            max-width: 600px;
+        }
+
+        // Parte enrollada arriba
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 30px;
+            background: radial-gradient(circle at center, #fff3b0 40%, #e0c36e 100%);
+            border: 2px solid #c7a008;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        &::before {
+            top: -15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        // Parte enrollada abajo
+        &::after {
+            bottom: -15px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        &-img {
+            display: none;
+
+            @include m.tablet {
+                display: block;
+                position: absolute;
+                bottom: 35%;
+                right: -25%;
+                width: 25rem;
+                height: auto;
+                transform: rotateZ(110deg);
+                filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.2));
+                z-index: 2;
+            }
+
+            @include m.tablet-horizontal {
+                width: 25rem;
+            }
+        }
+
+        h3 {
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+            color: #5c4424;
+
+            li {
+                margin-bottom: 1.2rem;
+                line-height: 1.6;
+            }
+        }
+    }
+}

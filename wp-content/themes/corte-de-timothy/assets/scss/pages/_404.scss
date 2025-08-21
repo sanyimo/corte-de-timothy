@@ -1,0 +1,63 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+
+body.bg-404 {
+    background: url('../img/terraza-flores.webp') center center no-repeat fixed; // o .webp
+    background-size: cover;
+    perspective: none;
+
+    .page-404 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        text-align: center;    
+        position: relative;
+        
+        h1 {
+            margin-top: 3rem;
+            
+            @include m.desktop {               
+                margin-top: 3rem;
+            }
+        }    
+
+        p {
+            font-weight: bold;
+            background: linear-gradient(to bottom, rgba(v.$BlancoPerlado, 0.75), transparent);
+            backdrop-filter: blur(5px);
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(v.$BlancoPerlado, 0.25);
+            padding: 2rem;
+            width: 80%;            
+            margin: 0 auto 2rem;
+            text-align: center;
+
+            @include m.desktop {
+                padding: 2rem 3rem;
+                max-width: 40rem;
+            }
+        }
+    }
+
+    .trovador-img {
+        position: fixed;
+        height: auto;
+        bottom: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 240px;
+        pointer-events: none;
+
+        @include m.desktop {
+            bottom: 22%;
+        }
+    }
+
+    .volver {
+        color: #960018; 
+        font-weight: bold; 
+    }
+}

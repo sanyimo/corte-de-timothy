@@ -1,0 +1,217 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+body:has(main.cronica__pg) {
+
+    background: url('../img/interior2.webp') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.cronica__pg {
+    padding: 3rem 0;
+    background: linear-gradient(to bottom, v.$blancoReal 0%, v.$BlancoPerlado 100%);
+
+    @include m.tablet {
+        background: none;
+    }
+    
+    @include m.desktop {
+        padding: 0;
+    }
+
+    h1 {
+        @include m.bg-titulo-oscuro;
+
+        @include m.desktop {
+            margin: 0 auto;
+            max-width: 600px;
+        }
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 1rem;
+
+        @include m.tablet {
+            padding: 0 2rem;
+        }
+
+        @include m.desktop {
+            max-width: 700px;
+            padding: 23rem 4rem;
+            background: url('../img/papiro-1187.webp') no-repeat center center;
+            background-size: 100% 100%;
+            position: relative;
+            transition: all 0.2s ease;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 21rem;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 150px;
+                height: 150px;
+                background: url('../img/sello.webp') no-repeat center center;
+                background-size: contain;
+                pointer-events: none;
+                z-index: 2;
+                filter: brightness(1.2)
+            }
+            
+            h2 {
+                @include m.bg-titulo-oscuro;
+                margin: 1rem 0;
+            }
+        }
+    }
+
+    &-contenido {
+        padding: 1rem;
+
+        @include m.tablet {
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            padding: 3rem;
+            border: 2px solid #e6d8c3;
+        }
+
+        @include m.desktop {
+            padding: 0 3rem 3rem;
+            border: none;
+            box-shadow: none;
+            background: none;
+        }
+
+        ul {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding-left: 1rem;
+
+            @include m.desktop {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+            }
+        }
+
+        li {
+            list-style-position: inside; // o inside, según necesites
+                padding-left: 0;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            text-indent: 1.5rem;
+            margin: 0.5rem;
+
+            &.poema {
+                text-align: center;
+            }
+
+            &.firma {
+                font-style: italic;
+                text-align: right;
+                margin-top: 2rem;
+                color: v.$carmesi;
+            }
+        }
+    }
+
+    &-imagen {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 2rem auto;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+        @include m.desktop {
+            box-shadow: none;
+            margin: 0 auto;
+        }
+
+        &--img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 2rem auto 0;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+            @include m.tablet-horizontal {
+                max-width: 400px;
+            }
+
+            @include m.desktop {
+                box-shadow: none;
+                margin: 0 auto;
+            }
+        }
+        &--img-gr {
+            @extend .cronica__pg-imagen--img;
+
+            @include m.tablet-horizontal {
+                max-width: 350px;
+
+            }
+        }
+
+        &--accesorio {
+            display: block;
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 1rem;
+            //box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+            @include m.tablet-horizontal {
+                max-width: 100px;
+            }
+        }
+
+        picture {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem auto 0;
+        }
+
+        figcaption {
+            text-align: center;
+            font-style: italic;
+            color: v.$carmesi;
+            padding: 1rem;
+        }
+    }
+
+    &-volver {
+        display: inline-block;
+        margin-top: 2rem;
+        color: #5a3e2b;
+        text-decoration: none;
+        font-weight: bold;
+        background: linear-gradient(to bottom, rgba(v.$BlancoPerlado, 0.85), rgba(v.$blancoReal, 0.4));
+        border-radius: 45%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 0.5rem;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: v.$carmesi;
+            scale: 1.05;
+        }
+
+        @include m.tablet {
+            margin-top: 3rem;
+        }
+    }
+}

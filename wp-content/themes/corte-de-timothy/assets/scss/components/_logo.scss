@@ -1,0 +1,86 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.logo {
+    position: relative;
+    display: inline-block;
+    width: 310px; // header (override con media query para footer)
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.04);
+
+        .logo-text,
+        .span-timothy {
+            fill: url(#textGradient);
+        }
+
+        .logo-icon {
+            transform: rotate(0deg) scale(1.1);
+            filter: drop-shadow(0 0 5px rgba(255, 245, 230, 0.8));
+        }
+    }
+
+    .logo-icon {
+        position: absolute;
+        top: -0.5rem;
+        right: 4.5rem;
+        width: 2rem;
+        transform: rotate(10deg);
+        z-index: 2;
+        transition: transform 0.4s ease, filter 0.4s ease;
+        pointer-events: none;
+    }
+
+    .logo-svg {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    header & {
+        &:hover {
+
+            .logo-text,
+            .span-timothy {
+                fill: url(#textGradient);
+            }
+        }
+        .logo-text {
+            fill: #960018;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 3px rgba(85, 85, 85, 0.3);
+            transition: fill 0.4s ease;
+        }
+
+        .span-timothy {
+            fill: #960018;
+            transition: fill 0.4s ease;
+        }
+    }
+
+    // Footer override
+    footer & {
+        width: 205px;
+
+        .logo-icon {
+            width: 1.25rem;
+            right: 3.3rem;
+            top: -0.3rem;
+        }
+
+        .logo-text,
+        .span-timothy {
+            fill: url(#textGradient);
+        }
+
+        // &:hover {
+
+        //     .logo-text,
+        //     .span-timothy {
+        //         fill: url(#textGradient); // mantiene el hover
+        //     }
+        // }
+    }
+}

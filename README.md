@@ -1,4 +1,4 @@
-![Home Screenshot](assets-demo/home.png)
+![Home Screenshot](assets-demo/home.jpg)
 
 <br>
 

@@ -33,7 +33,7 @@ In this magical kingdom, all little furry friends are treated as nobility.
 <br>
 
 ## 🌍 Demo / Online demo
-👉 [Corte de Timothy](https://corte-timothy.infy.uk/)
+👉 [Corte de Timothy](https://corte-timothy.infinityfreeapp.com/)
 
 <br>
 
